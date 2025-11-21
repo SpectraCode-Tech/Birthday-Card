@@ -147,7 +147,6 @@ body{
 .gift img{
     width: 300px;
 }
-  @media only screen and (max-width: 750px) {
   .card {
     position: absolute;              /* keep it centered */
     top: 50%;
@@ -156,7 +155,7 @@ body{
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    width: 90%;                      /* responsive width */
+    width: 70%;                      /* responsive width */
     max-width: 350px;                /* cap size for readability */
     padding: 16px;
     text-align: center;
@@ -177,6 +176,4 @@ body{
     font-size: 1rem;
     margin-top: 5px;
   }
-}
-
 }
