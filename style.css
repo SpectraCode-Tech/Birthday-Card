@@ -65,6 +65,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .gift img {
   width: 500px;
