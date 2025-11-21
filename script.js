@@ -1,41 +1,32 @@
-        // Set the target date and time
-        const targetDate = new Date("2025-11-20T23:59:59").getTime();
+// Target date: Nov 20, 2025, 11:59:59 PM in local time
+const targetDate = new Date(2025, 10, 20, 23, 59, 59).getTime();
 
-        // Update the countdown every second
-        const countdownInterval = setInterval(() => {
-            const now = new Date().getTime();
-            const timeRemaining = targetDate - now;
+const countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const timeRemaining = targetDate - now;
 
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            
+    document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-            // Display the countdown
-            document.getElementById("countdown").innerHTML = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    if (timeRemaining < 0) {
+        clearInterval(countdownInterval);
 
-            // If the countdown is over, stop the interval
-           if (timeRemaining < 0) {
-    clearInterval(countdownInterval);
+        const giftElements = document.getElementsByClassName("gift");
+        if (giftElements.length > 0) {
+            giftElements[0].style.display = "flex";
+        }
 
-    // Show the first element with class "gift"
-    const giftElements = document.getElementsByClassName("gift");
-    if (giftElements.length > 0) {
-        giftElements[0].style.display = "flex";
+        const headerElements = document.getElementsByTagName("header");
+        if (headerElements.length > 0) {
+            headerElements[0].style.display = "none";
+        }
     }
-
-    // Hide the first <header> element
-    const headerElements = document.getElementsByTagName("header");
-    if (headerElements.length > 0) {
-        headerElements[0].style.display = "none";
-    }
-}
 }, 1000);
-
 function showCard() {
     const gift = document.getElementById("gift");
     gift.addEventListener("click", () => {
