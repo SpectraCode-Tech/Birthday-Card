@@ -176,7 +176,9 @@ body {
     bottom: 0;
     width: 150px;
   }
-
+.gift{
+      flex-direction: column;
+}
   /* Gift image */
   .gift img {
     width: 250px;
